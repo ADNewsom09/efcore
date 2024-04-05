@@ -206,17 +206,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("BoolNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<BoolNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             boolNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadBoolNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadBoolNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadBoolNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadBoolNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(instance) == null);
             boolNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, bool[][] value) => WriteBoolNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, bool[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(entity) = value);
             boolNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, bool[][] value) => WriteBoolNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, bool[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(entity) = value);
             boolNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadBoolNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadBoolNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<bool[][]>(boolNestedCollection, 3),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<bool[][]>(boolNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[3]);
@@ -286,6 +286,7 @@ namespace TestNamespace
                             (bool v) => v.GetHashCode(),
                             (bool v) => v))));
             boolNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            boolNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection", "TestNamespace") });
 
             var boolToStringConverterProperty = runtimeEntityType.AddProperty(
                 "BoolToStringConverterProperty",
@@ -564,17 +565,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("BytesNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<BytesNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             bytesNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadBytesNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadBytesNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadBytesNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadBytesNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(instance) == null);
             bytesNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => WriteBytesNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(entity) = value);
             bytesNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => WriteBytesNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(entity) = value);
             bytesNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadBytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadBytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<byte[][][]>(bytesNestedCollection, 9),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<byte[][][]>(bytesNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[9]);
@@ -647,6 +648,7 @@ namespace TestNamespace
                             storeTypeName: "varbinary(max)"),
                         storeTypePostfix: StoreTypePostfix.None)));
             bytesNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            bytesNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection", "TestNamespace") });
 
             var bytesToStringConverterProperty = runtimeEntityType.AddProperty(
                 "BytesToStringConverterProperty",
@@ -904,17 +906,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("CharNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<CharNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             charNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadCharNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadCharNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadCharNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadCharNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(instance) == null);
             charNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, char[][] value) => WriteCharNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, char[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(entity) = value);
             charNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, char[][] value) => WriteCharNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, char[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(entity) = value);
             charNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadCharNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadCharNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<char[][]>(charNestedCollection, 14),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<char[][]>(charNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[14]);
@@ -1013,6 +1015,7 @@ namespace TestNamespace
                                 (char v) => string.Format(CultureInfo.InvariantCulture, "{0}", (object)v),
                                 (string v) => v.Length < 1 ? '\0' : v[0])))));
             charNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            charNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection", "TestNamespace") });
 
             var charToStringConverterProperty = runtimeEntityType.AddProperty(
                 "CharToStringConverterProperty",
@@ -2980,17 +2983,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("Enum32NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<Enum32NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             enum32NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadEnum32NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadEnum32NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadEnum32NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadEnum32NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(instance) == null);
             enum32NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, List<CompiledModelTestBase.Enum32>[][] value) => WriteEnum32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, List<CompiledModelTestBase.Enum32>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(entity) = value);
             enum32NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, List<CompiledModelTestBase.Enum32>[][] value) => WriteEnum32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, List<CompiledModelTestBase.Enum32>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(entity) = value);
             enum32NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadEnum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadEnum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<List<CompiledModelTestBase.Enum32>[][]>(enum32NestedCollection, 47),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<List<CompiledModelTestBase.Enum32>[][]>(enum32NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[47]);
@@ -3118,6 +3121,7 @@ namespace TestNamespace
                                     (CompiledModelTestBase.Enum32 value) => (int)value,
                                     (int value) => (CompiledModelTestBase.Enum32)value))))));
             enum32NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            enum32NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection", "TestNamespace") });
 
             var enum64 = runtimeEntityType.AddProperty(
                 "Enum64",
@@ -4001,17 +4005,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("Enum8NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<Enum8NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             enum8NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadEnum8NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadEnum8NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadEnum8NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadEnum8NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(instance) == null);
             enum8NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.Enum8[][] value) => WriteEnum8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.Enum8[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(entity) = value);
             enum8NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.Enum8[][] value) => WriteEnum8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.Enum8[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(entity) = value);
             enum8NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadEnum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadEnum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<CompiledModelTestBase.Enum8[][]>(enum8NestedCollection, 60),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<CompiledModelTestBase.Enum8[][]>(enum8NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[60]);
@@ -4105,6 +4109,7 @@ namespace TestNamespace
                                 (CompiledModelTestBase.Enum8 value) => (short)value,
                                 (short value) => (CompiledModelTestBase.Enum8)value)))));
             enum8NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            enum8NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection", "TestNamespace") });
 
             var enumToNumberConverterProperty = runtimeEntityType.AddProperty(
                 "EnumToNumberConverterProperty",
@@ -5547,17 +5552,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("EnumU64NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<EnumU64NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             enumU64NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadEnumU64NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadEnumU64NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadEnumU64NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadEnumU64NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(instance) == null);
             enumU64NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.EnumU64[][] value) => WriteEnumU64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.EnumU64[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(entity) = value);
             enumU64NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.EnumU64[][] value) => WriteEnumU64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, CompiledModelTestBase.EnumU64[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(entity) = value);
             enumU64NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadEnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadEnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<CompiledModelTestBase.EnumU64[][]>(enumU64NestedCollection, 81),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<CompiledModelTestBase.EnumU64[][]>(enumU64NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[81]);
@@ -5655,6 +5660,7 @@ namespace TestNamespace
                                 (CompiledModelTestBase.EnumU64 value) => (decimal)(long)value,
                                 (decimal value) => (CompiledModelTestBase.EnumU64)(long)value)))));
             enumU64NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            enumU64NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection", "TestNamespace") });
 
             var enumU8 = runtimeEntityType.AddProperty(
                 "EnumU8",
@@ -6318,17 +6324,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("GuidNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<GuidNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             guidNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadGuidNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadGuidNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadGuidNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadGuidNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(instance) == null);
             guidNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, ICollection<Guid[][]> value) => WriteGuidNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, ICollection<Guid[][]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(entity) = value);
             guidNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, ICollection<Guid[][]> value) => WriteGuidNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, ICollection<Guid[][]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(entity) = value);
             guidNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadGuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadGuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<ICollection<Guid[][]>>(guidNestedCollection, 92),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<ICollection<Guid[][]>>(guidNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[92]);
@@ -6426,6 +6432,7 @@ namespace TestNamespace
                             mappingInfo: new RelationalTypeMappingInfo(
                                 storeTypeName: "uniqueidentifier")))));
             guidNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            guidNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection", "TestNamespace") });
 
             var guidToBytesConverterProperty = runtimeEntityType.AddProperty(
                 "GuidToBytesConverterProperty",
@@ -7009,17 +7016,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("Int32NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<Int32NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             int32NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadInt32NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadInt32NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadInt32NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadInt32NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(instance) == null);
             int32NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, int[][] value) => WriteInt32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, int[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(entity) = value);
             int32NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, int[][] value) => WriteInt32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, int[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(entity) = value);
             int32NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadInt32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadInt32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<int[][]>(int32NestedCollection, 103),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<int[][]>(int32NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[103]);
@@ -7089,6 +7096,7 @@ namespace TestNamespace
                             (int v) => v,
                             (int v) => v))));
             int32NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            int32NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection", "TestNamespace") });
 
             var int64 = runtimeEntityType.AddProperty(
                 "Int64",
@@ -7203,17 +7211,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("Int64NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<Int64NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             int64NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadInt64NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadInt64NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadInt64NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadInt64NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(instance) == null);
             int64NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, IList<long[]>[] value) => WriteInt64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, IList<long[]>[] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(entity) = value);
             int64NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, IList<long[]>[] value) => WriteInt64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, IList<long[]>[] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(entity) = value);
             int64NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadInt64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadInt64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<IList<long[]>[]>(int64NestedCollection, 106),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<IList<long[]>[]>(int64NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[106]);
@@ -7309,6 +7317,7 @@ namespace TestNamespace
                                 (long v) => v.GetHashCode(),
                                 (long v) => v)))));
             int64NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            int64NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection", "TestNamespace") });
 
             var int8 = runtimeEntityType.AddProperty(
                 "Int8",
@@ -7447,17 +7456,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("Int8NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<Int8NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             int8NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadInt8NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadInt8NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadInt8NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadInt8NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(instance) == null);
             int8NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, sbyte[][][] value) => WriteInt8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, sbyte[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(entity) = value);
             int8NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, sbyte[][][] value) => WriteInt8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, sbyte[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(entity) = value);
             int8NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<sbyte[][][]>(int8NestedCollection, 109),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<sbyte[][][]>(int8NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[109]);
@@ -7585,6 +7594,7 @@ namespace TestNamespace
                                     (sbyte v) => (short)v,
                                     (short v) => (sbyte)v))))));
             int8NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            int8NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection", "TestNamespace") });
 
             var intNumberToBytesConverterProperty = runtimeEntityType.AddProperty(
                 "IntNumberToBytesConverterProperty",
@@ -7983,17 +7993,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableBytesNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableBytesNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableBytesNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableBytesNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableBytesNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableBytesNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableBytesNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(instance) == null);
             nullableBytesNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => WriteNullableBytesNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(entity) = value);
             nullableBytesNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => WriteNullableBytesNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, byte[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(entity) = value);
             nullableBytesNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableBytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableBytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<byte[][][]>(nullableBytesNestedCollection, 117),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<byte[][][]>(nullableBytesNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[117]);
@@ -8066,6 +8076,7 @@ namespace TestNamespace
                             storeTypeName: "varbinary(max)"),
                         storeTypePostfix: StoreTypePostfix.None)));
             nullableBytesNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableBytesNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection", "TestNamespace") });
 
             var nullableChar = runtimeEntityType.AddProperty(
                 "NullableChar",
@@ -9486,17 +9497,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableEnum32NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableEnum32NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableEnum32NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableEnum32NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableEnum32NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableEnum32NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableEnum32NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(instance) == null);
             nullableEnum32NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum32>[][][] value) => WriteNullableEnum32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum32>[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(entity) = value);
             nullableEnum32NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum32>[][][] value) => WriteNullableEnum32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum32>[][][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(entity) = value);
             nullableEnum32NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableEnum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableEnum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<Nullable<CompiledModelTestBase.Enum32>[][][]>(nullableEnum32NestedCollection, 140),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<Nullable<CompiledModelTestBase.Enum32>[][][]>(nullableEnum32NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[140]);
@@ -9624,6 +9635,7 @@ namespace TestNamespace
                                     (CompiledModelTestBase.Enum32 value) => (int)value,
                                     (int value) => (CompiledModelTestBase.Enum32)value))))));
             nullableEnum32NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableEnum32NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection", "TestNamespace") });
 
             var nullableEnum64 = runtimeEntityType.AddProperty(
                 "NullableEnum64",
@@ -10475,17 +10487,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableEnum8NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableEnum8NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableEnum8NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableEnum8NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableEnum8NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableEnum8NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableEnum8NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(instance) == null);
             nullableEnum8NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum8>[][] value) => WriteNullableEnum8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum8>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(entity) = value);
             nullableEnum8NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum8>[][] value) => WriteNullableEnum8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.Enum8>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(entity) = value);
             nullableEnum8NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableEnum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableEnum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<Nullable<CompiledModelTestBase.Enum8>[][]>(nullableEnum8NestedCollection, 153),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<Nullable<CompiledModelTestBase.Enum8>[][]>(nullableEnum8NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[153]);
@@ -10579,6 +10591,7 @@ namespace TestNamespace
                                 (CompiledModelTestBase.Enum8 value) => (short)value,
                                 (short value) => (CompiledModelTestBase.Enum8)value)))));
             nullableEnum8NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableEnum8NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection", "TestNamespace") });
 
             var nullableEnumU16 = runtimeEntityType.AddProperty(
                 "NullableEnumU16",
@@ -11876,17 +11889,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableEnumU64NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableEnumU64NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableEnumU64NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableEnumU64NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableEnumU64NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableEnumU64NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableEnumU64NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(instance) == null);
             nullableEnumU64NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.EnumU64>[][] value) => WriteNullableEnumU64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.EnumU64>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(entity) = value);
             nullableEnumU64NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.EnumU64>[][] value) => WriteNullableEnumU64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<CompiledModelTestBase.EnumU64>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(entity) = value);
             nullableEnumU64NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableEnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableEnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<Nullable<CompiledModelTestBase.EnumU64>[][]>(nullableEnumU64NestedCollection, 172),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<Nullable<CompiledModelTestBase.EnumU64>[][]>(nullableEnumU64NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[172]);
@@ -11984,6 +11997,7 @@ namespace TestNamespace
                                 (CompiledModelTestBase.EnumU64 value) => (decimal)(long)value,
                                 (decimal value) => (CompiledModelTestBase.EnumU64)(long)value)))));
             nullableEnumU64NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableEnumU64NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection", "TestNamespace") });
 
             var nullableEnumU8 = runtimeEntityType.AddProperty(
                 "NullableEnumU8",
@@ -12631,17 +12645,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableGuidNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableGuidNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableGuidNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableGuidNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableGuidNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableGuidNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableGuidNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(instance) == null);
             nullableGuidNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<Guid>[][] value) => WriteNullableGuidNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<Guid>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(entity) = value);
             nullableGuidNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<Guid>[][] value) => WriteNullableGuidNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<Guid>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(entity) = value);
             nullableGuidNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableGuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableGuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<Nullable<Guid>[][]>(nullableGuidNestedCollection, 183),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<Nullable<Guid>[][]>(nullableGuidNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[183]);
@@ -12713,6 +12727,7 @@ namespace TestNamespace
                         mappingInfo: new RelationalTypeMappingInfo(
                             storeTypeName: "uniqueidentifier"))));
             nullableGuidNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableGuidNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection", "TestNamespace") });
 
             var nullableIPAddress = runtimeEntityType.AddProperty(
                 "NullableIPAddress",
@@ -13075,17 +13090,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableInt32NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableInt32NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableInt32NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableInt32NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableInt32NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableInt32NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableInt32NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(instance) == null);
             nullableInt32NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<int>[][] value) => WriteNullableInt32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<int>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(entity) = value);
             nullableInt32NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<int>[][] value) => WriteNullableInt32NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<int>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(entity) = value);
             nullableInt32NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableInt32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableInt32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<Nullable<int>[][]>(nullableInt32NestedCollection, 190),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<Nullable<int>[][]>(nullableInt32NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[190]);
@@ -13155,6 +13170,7 @@ namespace TestNamespace
                             (int v) => v,
                             (int v) => v))));
             nullableInt32NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableInt32NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection", "TestNamespace") });
 
             var nullableInt64 = runtimeEntityType.AddProperty(
                 "NullableInt64",
@@ -13269,17 +13285,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableInt64NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableInt64NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableInt64NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableInt64NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableInt64NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableInt64NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableInt64NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(instance) == null);
             nullableInt64NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, List<Nullable<long>[][]> value) => WriteNullableInt64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, List<Nullable<long>[][]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(entity) = value);
             nullableInt64NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, List<Nullable<long>[][]> value) => WriteNullableInt64NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, List<Nullable<long>[][]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(entity) = value);
             nullableInt64NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableInt64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableInt64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<List<Nullable<long>[][]>>(nullableInt64NestedCollection, 193),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<List<Nullable<long>[][]>>(nullableInt64NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[193]);
@@ -13375,6 +13391,7 @@ namespace TestNamespace
                                 (long v) => v.GetHashCode(),
                                 (long v) => v)))));
             nullableInt64NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableInt64NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection", "TestNamespace") });
 
             var nullableInt8 = runtimeEntityType.AddProperty(
                 "NullableInt8",
@@ -13654,17 +13671,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullablePhysicalAddressNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullablePhysicalAddressNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullablePhysicalAddressNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullablePhysicalAddressNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullablePhysicalAddressNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullablePhysicalAddressNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullablePhysicalAddressNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(instance) == null);
             nullablePhysicalAddressNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, IEnumerable<PhysicalAddress[][]> value) => WriteNullablePhysicalAddressNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, IEnumerable<PhysicalAddress[][]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(entity) = value);
             nullablePhysicalAddressNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, IEnumerable<PhysicalAddress[][]> value) => WriteNullablePhysicalAddressNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, IEnumerable<PhysicalAddress[][]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(entity) = value);
             nullablePhysicalAddressNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullablePhysicalAddressNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullablePhysicalAddressNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<IEnumerable<PhysicalAddress[][]>>(nullablePhysicalAddressNestedCollection, 198),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<IEnumerable<PhysicalAddress[][]>>(nullablePhysicalAddressNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[198]);
@@ -13797,6 +13814,7 @@ namespace TestNamespace
                                     (PhysicalAddress v) => v.ToString(),
                                     (string v) => PhysicalAddress.Parse(v)))))));
             nullablePhysicalAddressNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullablePhysicalAddressNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection", "TestNamespace") });
 
             var nullableString = runtimeEntityType.AddProperty(
                 "NullableString",
@@ -13921,17 +13939,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableStringNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableStringNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableStringNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableStringNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableStringNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableStringNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableStringNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(instance) == null);
             nullableStringNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, string[][] value) => WriteNullableStringNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, string[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(entity) = value);
             nullableStringNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, string[][] value) => WriteNullableStringNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, string[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(entity) = value);
             nullableStringNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableStringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableStringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<string[][]>(nullableStringNestedCollection, 201),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<string[][]>(nullableStringNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[201]);
@@ -14006,6 +14024,7 @@ namespace TestNamespace
                             dbType: System.Data.DbType.String),
                         storeTypePostfix: StoreTypePostfix.None)));
             nullableStringNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableStringNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection", "TestNamespace") });
 
             var nullableTimeOnly = runtimeEntityType.AddProperty(
                 "NullableTimeOnly",
@@ -14735,17 +14754,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("NullableUInt8NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<NullableUInt8NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             nullableUInt8NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableUInt8NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadNullableUInt8NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableUInt8NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadNullableUInt8NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(instance) == null);
             nullableUInt8NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<byte>[][] value) => WriteNullableUInt8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<byte>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(entity) = value);
             nullableUInt8NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, Nullable<byte>[][] value) => WriteNullableUInt8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, Nullable<byte>[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(entity) = value);
             nullableUInt8NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadNullableUInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadNullableUInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<Nullable<byte>[][]>(nullableUInt8NestedCollection, 214),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<Nullable<byte>[][]>(nullableUInt8NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[214]);
@@ -14815,6 +14834,7 @@ namespace TestNamespace
                             (byte v) => (int)v,
                             (byte v) => v))));
             nullableUInt8NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            nullableUInt8NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection", "TestNamespace") });
 
             var nullableUri = runtimeEntityType.AddProperty(
                 "NullableUri",
@@ -15329,17 +15349,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("StringNestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<StringNestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             stringNestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadStringNestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadStringNestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadStringNestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadStringNestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(instance) == null);
             stringNestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, string[][] value) => WriteStringNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, string[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(entity) = value);
             stringNestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, string[][] value) => WriteStringNestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, string[][] value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(entity) = value);
             stringNestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadStringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadStringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<string[][]>(stringNestedCollection, 223),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<string[][]>(stringNestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[223]);
@@ -15414,6 +15434,7 @@ namespace TestNamespace
                             dbType: System.Data.DbType.String),
                         storeTypePostfix: StoreTypePostfix.None)));
             stringNestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            stringNestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection", "TestNamespace") });
 
             var stringToBoolConverterProperty = runtimeEntityType.AddProperty(
                 "StringToBoolConverterProperty",
@@ -17081,17 +17102,17 @@ namespace TestNamespace
                 propertyInfo: typeof(CompiledModelTestBase.ManyTypes).GetProperty("UInt8NestedCollection", BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly),
                 fieldInfo: typeof(CompiledModelTestBase.ManyTypes).GetField("<UInt8NestedCollection>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly));
             uInt8NestedCollection.SetGetter(
-                (CompiledModelTestBase.ManyTypes entity) => ReadUInt8NestedCollection(entity),
-                (CompiledModelTestBase.ManyTypes entity) => ReadUInt8NestedCollection(entity) == null,
-                (CompiledModelTestBase.ManyTypes instance) => ReadUInt8NestedCollection(instance),
-                (CompiledModelTestBase.ManyTypes instance) => ReadUInt8NestedCollection(instance) == null);
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(entity),
+                (CompiledModelTestBase.ManyTypes entity) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(entity) == null,
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(instance),
+                (CompiledModelTestBase.ManyTypes instance) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(instance) == null);
             uInt8NestedCollection.SetSetter(
-                (CompiledModelTestBase.ManyTypes entity, List<byte[]> value) => WriteUInt8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, List<byte[]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(entity) = value);
             uInt8NestedCollection.SetMaterializationSetter(
-                (CompiledModelTestBase.ManyTypes entity, List<byte[]> value) => WriteUInt8NestedCollection(entity, value));
+                (CompiledModelTestBase.ManyTypes entity, List<byte[]> value) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(entity) = value);
             uInt8NestedCollection.SetAccessors(
-                (InternalEntityEntry entry) => ReadUInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
-                (InternalEntityEntry entry) => ReadUInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
+                (InternalEntityEntry entry) => UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection((CompiledModelTestBase.ManyTypes)entry.Entity),
                 (InternalEntityEntry entry) => entry.ReadOriginalValue<List<byte[]>>(uInt8NestedCollection, 254),
                 (InternalEntityEntry entry) => entry.GetCurrentValue<List<byte[]>>(uInt8NestedCollection),
                 (ValueBuffer valueBuffer) => valueBuffer[254]);
@@ -17140,6 +17161,7 @@ namespace TestNamespace
                         storeTypeName: "varbinary(max)"),
                     storeTypePostfix: StoreTypePostfix.None));
             uInt8NestedCollection.AddAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+            uInt8NestedCollection.AddRuntimeAnnotation("UnsafeAccessors", new[] { ("ManyTypesEntityType.UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection", "TestNamespace") });
 
             var uri = runtimeEntityType.AddProperty(
                 "Uri",
@@ -17670,13 +17692,7 @@ namespace TestNamespace
         public static extern ref bool[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<BoolNestedCollection>k__BackingField")]
-        extern static ref bool[][] GetBoolNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static bool[][] ReadBoolNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetBoolNestedCollection(@this);
-
-        public static void WriteBoolNestedCollection(CompiledModelTestBase.ManyTypes @this, bool[][] value)
-            => GetBoolNestedCollection(@this) = value;
+        public static extern ref bool[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<BoolToStringConverterProperty>k__BackingField")]
         public static extern ref bool UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BoolToStringConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -17694,13 +17710,7 @@ namespace TestNamespace
         public static extern ref byte[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<BytesNestedCollection>k__BackingField")]
-        extern static ref byte[][][] GetBytesNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static byte[][][] ReadBytesNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetBytesNestedCollection(@this);
-
-        public static void WriteBytesNestedCollection(CompiledModelTestBase.ManyTypes @this, byte[][][] value)
-            => GetBytesNestedCollection(@this) = value;
+        public static extern ref byte[][][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<BytesToStringConverterProperty>k__BackingField")]
         public static extern ref byte[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_BytesToStringConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -17715,13 +17725,7 @@ namespace TestNamespace
         public static extern ref char[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<CharNestedCollection>k__BackingField")]
-        extern static ref char[][] GetCharNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static char[][] ReadCharNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetCharNestedCollection(@this);
-
-        public static void WriteCharNestedCollection(CompiledModelTestBase.ManyTypes @this, char[][] value)
-            => GetCharNestedCollection(@this) = value;
+        public static extern ref char[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<CharToStringConverterProperty>k__BackingField")]
         public static extern ref char UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_CharToStringConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -17820,13 +17824,7 @@ namespace TestNamespace
         public static extern ref List<CompiledModelTestBase.Enum32> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32Collection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Enum32NestedCollection>k__BackingField")]
-        extern static ref List<CompiledModelTestBase.Enum32>[][] GetEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static List<CompiledModelTestBase.Enum32>[][] ReadEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetEnum32NestedCollection(@this);
-
-        public static void WriteEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this, List<CompiledModelTestBase.Enum32>[][] value)
-            => GetEnum32NestedCollection(@this) = value;
+        public static extern ref List<CompiledModelTestBase.Enum32>[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum32NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Enum64>k__BackingField")]
         public static extern ref CompiledModelTestBase.Enum64 UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum64(CompiledModelTestBase.ManyTypes @this);
@@ -17865,13 +17863,7 @@ namespace TestNamespace
         public static extern ref List<CompiledModelTestBase.Enum8> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8Collection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Enum8NestedCollection>k__BackingField")]
-        extern static ref CompiledModelTestBase.Enum8[][] GetEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static CompiledModelTestBase.Enum8[][] ReadEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetEnum8NestedCollection(@this);
-
-        public static void WriteEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this, CompiledModelTestBase.Enum8[][] value)
-            => GetEnum8NestedCollection(@this) = value;
+        public static extern ref CompiledModelTestBase.Enum8[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Enum8NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<EnumToNumberConverterProperty>k__BackingField")]
         public static extern ref CompiledModelTestBase.Enum32 UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumToNumberConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -17934,13 +17926,7 @@ namespace TestNamespace
         public static extern ref List<CompiledModelTestBase.EnumU64> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64Collection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<EnumU64NestedCollection>k__BackingField")]
-        extern static ref CompiledModelTestBase.EnumU64[][] GetEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static CompiledModelTestBase.EnumU64[][] ReadEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetEnumU64NestedCollection(@this);
-
-        public static void WriteEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this, CompiledModelTestBase.EnumU64[][] value)
-            => GetEnumU64NestedCollection(@this) = value;
+        public static extern ref CompiledModelTestBase.EnumU64[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<EnumU8>k__BackingField")]
         public static extern ref CompiledModelTestBase.EnumU8 UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_EnumU8(CompiledModelTestBase.ManyTypes @this);
@@ -17973,13 +17959,7 @@ namespace TestNamespace
         public static extern ref Guid[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<GuidNestedCollection>k__BackingField")]
-        extern static ref ICollection<Guid[][]> GetGuidNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static ICollection<Guid[][]> ReadGuidNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetGuidNestedCollection(@this);
-
-        public static void WriteGuidNestedCollection(CompiledModelTestBase.ManyTypes @this, ICollection<Guid[][]> value)
-            => GetGuidNestedCollection(@this) = value;
+        public static extern ref ICollection<Guid[][]> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<GuidToBytesConverterProperty>k__BackingField")]
         public static extern ref Guid UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_GuidToBytesConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -18012,13 +17992,7 @@ namespace TestNamespace
         public static extern ref int[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Int32NestedCollection>k__BackingField")]
-        extern static ref int[][] GetInt32NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static int[][] ReadInt32NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetInt32NestedCollection(@this);
-
-        public static void WriteInt32NestedCollection(CompiledModelTestBase.ManyTypes @this, int[][] value)
-            => GetInt32NestedCollection(@this) = value;
+        public static extern ref int[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int32NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Int64>k__BackingField")]
         public static extern ref long UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64(CompiledModelTestBase.ManyTypes @this);
@@ -18027,13 +18001,7 @@ namespace TestNamespace
         public static extern ref long[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Int64NestedCollection>k__BackingField")]
-        extern static ref IList<long[]>[] GetInt64NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static IList<long[]>[] ReadInt64NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetInt64NestedCollection(@this);
-
-        public static void WriteInt64NestedCollection(CompiledModelTestBase.ManyTypes @this, IList<long[]>[] value)
-            => GetInt64NestedCollection(@this) = value;
+        public static extern ref IList<long[]>[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int64NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Int8>k__BackingField")]
         public static extern ref sbyte UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8(CompiledModelTestBase.ManyTypes @this);
@@ -18042,13 +18010,7 @@ namespace TestNamespace
         public static extern ref sbyte[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Int8NestedCollection>k__BackingField")]
-        extern static ref sbyte[][][] GetInt8NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static sbyte[][][] ReadInt8NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetInt8NestedCollection(@this);
-
-        public static void WriteInt8NestedCollection(CompiledModelTestBase.ManyTypes @this, sbyte[][][] value)
-            => GetInt8NestedCollection(@this) = value;
+        public static extern ref sbyte[][][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Int8NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<IntNumberToBytesConverterProperty>k__BackingField")]
         public static extern ref int UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_IntNumberToBytesConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -18072,13 +18034,7 @@ namespace TestNamespace
         public static extern ref byte[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableBytesNestedCollection>k__BackingField")]
-        extern static ref byte[][][] GetNullableBytesNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static byte[][][] ReadNullableBytesNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableBytesNestedCollection(@this);
-
-        public static void WriteNullableBytesNestedCollection(CompiledModelTestBase.ManyTypes @this, byte[][][] value)
-            => GetNullableBytesNestedCollection(@this) = value;
+        public static extern ref byte[][][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableBytesNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableChar>k__BackingField")]
         public static extern ref char? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableChar(CompiledModelTestBase.ManyTypes @this);
@@ -18147,13 +18103,7 @@ namespace TestNamespace
         public static extern ref List<CompiledModelTestBase.Enum32?> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32Collection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableEnum32NestedCollection>k__BackingField")]
-        extern static ref CompiledModelTestBase.Enum32?[][][] GetNullableEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static CompiledModelTestBase.Enum32?[][][] ReadNullableEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableEnum32NestedCollection(@this);
-
-        public static void WriteNullableEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this, CompiledModelTestBase.Enum32?[][][] value)
-            => GetNullableEnum32NestedCollection(@this) = value;
+        public static extern ref CompiledModelTestBase.Enum32?[][][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum32NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableEnum64>k__BackingField")]
         public static extern ref CompiledModelTestBase.Enum64? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum64(CompiledModelTestBase.ManyTypes @this);
@@ -18192,13 +18142,7 @@ namespace TestNamespace
         public static extern ref List<CompiledModelTestBase.Enum8?> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8Collection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableEnum8NestedCollection>k__BackingField")]
-        extern static ref CompiledModelTestBase.Enum8?[][] GetNullableEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static CompiledModelTestBase.Enum8?[][] ReadNullableEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableEnum8NestedCollection(@this);
-
-        public static void WriteNullableEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this, CompiledModelTestBase.Enum8?[][] value)
-            => GetNullableEnum8NestedCollection(@this) = value;
+        public static extern ref CompiledModelTestBase.Enum8?[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnum8NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableEnumU16>k__BackingField")]
         public static extern ref CompiledModelTestBase.EnumU16? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU16(CompiledModelTestBase.ManyTypes @this);
@@ -18255,13 +18199,7 @@ namespace TestNamespace
         public static extern ref List<CompiledModelTestBase.EnumU64?> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64Collection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableEnumU64NestedCollection>k__BackingField")]
-        extern static ref CompiledModelTestBase.EnumU64?[][] GetNullableEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static CompiledModelTestBase.EnumU64?[][] ReadNullableEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableEnumU64NestedCollection(@this);
-
-        public static void WriteNullableEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this, CompiledModelTestBase.EnumU64?[][] value)
-            => GetNullableEnumU64NestedCollection(@this) = value;
+        public static extern ref CompiledModelTestBase.EnumU64?[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU64NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableEnumU8>k__BackingField")]
         public static extern ref CompiledModelTestBase.EnumU8? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableEnumU8(CompiledModelTestBase.ManyTypes @this);
@@ -18294,13 +18232,7 @@ namespace TestNamespace
         public static extern ref Guid?[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableGuidNestedCollection>k__BackingField")]
-        extern static ref Guid?[][] GetNullableGuidNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static Guid?[][] ReadNullableGuidNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableGuidNestedCollection(@this);
-
-        public static void WriteNullableGuidNestedCollection(CompiledModelTestBase.ManyTypes @this, Guid?[][] value)
-            => GetNullableGuidNestedCollection(@this) = value;
+        public static extern ref Guid?[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableGuidNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableIPAddress>k__BackingField")]
         public static extern ref IPAddress UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableIPAddress(CompiledModelTestBase.ManyTypes @this);
@@ -18321,13 +18253,7 @@ namespace TestNamespace
         public static extern ref int?[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableInt32NestedCollection>k__BackingField")]
-        extern static ref int?[][] GetNullableInt32NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static int?[][] ReadNullableInt32NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableInt32NestedCollection(@this);
-
-        public static void WriteNullableInt32NestedCollection(CompiledModelTestBase.ManyTypes @this, int?[][] value)
-            => GetNullableInt32NestedCollection(@this) = value;
+        public static extern ref int?[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt32NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableInt64>k__BackingField")]
         public static extern ref long? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64(CompiledModelTestBase.ManyTypes @this);
@@ -18336,13 +18262,7 @@ namespace TestNamespace
         public static extern ref long?[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableInt64NestedCollection>k__BackingField")]
-        extern static ref List<long?[][]> GetNullableInt64NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static List<long?[][]> ReadNullableInt64NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableInt64NestedCollection(@this);
-
-        public static void WriteNullableInt64NestedCollection(CompiledModelTestBase.ManyTypes @this, List<long?[][]> value)
-            => GetNullableInt64NestedCollection(@this) = value;
+        public static extern ref List<long?[][]> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt64NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableInt8>k__BackingField")]
         public static extern ref sbyte? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableInt8(CompiledModelTestBase.ManyTypes @this);
@@ -18357,13 +18277,7 @@ namespace TestNamespace
         public static extern ref PhysicalAddress[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullablePhysicalAddressNestedCollection>k__BackingField")]
-        extern static ref IEnumerable<PhysicalAddress[][]> GetNullablePhysicalAddressNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static IEnumerable<PhysicalAddress[][]> ReadNullablePhysicalAddressNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullablePhysicalAddressNestedCollection(@this);
-
-        public static void WriteNullablePhysicalAddressNestedCollection(CompiledModelTestBase.ManyTypes @this, IEnumerable<PhysicalAddress[][]> value)
-            => GetNullablePhysicalAddressNestedCollection(@this) = value;
+        public static extern ref IEnumerable<PhysicalAddress[][]> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullablePhysicalAddressNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableString>k__BackingField")]
         public static extern ref string UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableString(CompiledModelTestBase.ManyTypes @this);
@@ -18372,13 +18286,7 @@ namespace TestNamespace
         public static extern ref string[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableStringNestedCollection>k__BackingField")]
-        extern static ref string[][] GetNullableStringNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static string[][] ReadNullableStringNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableStringNestedCollection(@this);
-
-        public static void WriteNullableStringNestedCollection(CompiledModelTestBase.ManyTypes @this, string[][] value)
-            => GetNullableStringNestedCollection(@this) = value;
+        public static extern ref string[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableStringNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableTimeOnly>k__BackingField")]
         public static extern ref TimeOnly? UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableTimeOnly(CompiledModelTestBase.ManyTypes @this);
@@ -18417,13 +18325,7 @@ namespace TestNamespace
         public static extern ref byte?[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableUInt8NestedCollection>k__BackingField")]
-        extern static ref byte?[][] GetNullableUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static byte?[][] ReadNullableUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetNullableUInt8NestedCollection(@this);
-
-        public static void WriteNullableUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this, byte?[][] value)
-            => GetNullableUInt8NestedCollection(@this) = value;
+        public static extern ref byte?[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<NullableUri>k__BackingField")]
         public static extern ref Uri UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_NullableUri(CompiledModelTestBase.ManyTypes @this);
@@ -18450,13 +18352,7 @@ namespace TestNamespace
         public static extern ref string[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringArray(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<StringNestedCollection>k__BackingField")]
-        extern static ref string[][] GetStringNestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static string[][] ReadStringNestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetStringNestedCollection(@this);
-
-        public static void WriteStringNestedCollection(CompiledModelTestBase.ManyTypes @this, string[][] value)
-            => GetStringNestedCollection(@this) = value;
+        public static extern ref string[][] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringNestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<StringToBoolConverterProperty>k__BackingField")]
         public static extern ref string UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_StringToBoolConverterProperty(CompiledModelTestBase.ManyTypes @this);
@@ -18549,13 +18445,7 @@ namespace TestNamespace
         public static extern ref byte[] UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8Array(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<UInt8NestedCollection>k__BackingField")]
-        extern static ref List<byte[]> GetUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this);
-
-        public static List<byte[]> ReadUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this)
-            => GetUInt8NestedCollection(@this);
-
-        public static void WriteUInt8NestedCollection(CompiledModelTestBase.ManyTypes @this, List<byte[]> value)
-            => GetUInt8NestedCollection(@this) = value;
+        public static extern ref List<byte[]> UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_UInt8NestedCollection(CompiledModelTestBase.ManyTypes @this);
 
         [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Uri>k__BackingField")]
         public static extern ref Uri UnsafeAccessor_Microsoft_EntityFrameworkCore_Scaffolding_ManyTypes_Uri(CompiledModelTestBase.ManyTypes @this);

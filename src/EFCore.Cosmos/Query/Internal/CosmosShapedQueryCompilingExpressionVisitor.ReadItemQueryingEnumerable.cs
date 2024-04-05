@@ -62,26 +62,32 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor
             return CosmosStrings.NoReadItemQueryString(resourceId, partitionKey);
         }
 
-        private bool TryGetPartitionId(out string partitionKey)
+        private bool TryGetPartitionId(out PartitionKey partitionKeyValue)
         {
-            partitionKey = null;
-
-            var partitionKeyPropertyName = _readItemExpression.EntityType.GetPartitionKeyPropertyName();
-            if (partitionKeyPropertyName == null)
+            var properties = _readItemExpression.EntityType.GetPartitionKeyProperties();
+            if (!properties.Any())
             {
+                partitionKeyValue = PartitionKey.None;
                 return true;
             }
 
-            var partitionKeyProperty = _readItemExpression.EntityType.FindProperty(partitionKeyPropertyName);
-
-            if (TryGetParameterValue(partitionKeyProperty, out var value))
+            var builder = new PartitionKeyBuilder();
+            foreach (var property in properties)
             {
-                partitionKey = GetString(partitionKeyProperty, value);
-
-                return !string.IsNullOrEmpty(partitionKey);
+                if (TryGetParameterValue(property, out var value))
+                {
+                    if (value == null)
+                    {
+                        partitionKeyValue = PartitionKey.Null;
+                        return false;
+                    }
+                    builder.Add(value, property.GetTypeMapping().Converter);
+                }
             }
 
-            return false;
+            partitionKeyValue = builder.Build();
+
+            return true;
         }
 
         private bool TryGetResourceId(out string resourceId)
@@ -213,7 +219,7 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor
                                 throw new InvalidOperationException(CosmosStrings.ResourceIdMissing);
                             }
 
-                            if (!_readItemEnumerable.TryGetPartitionId(out var partitionKey))
+                            if (!_readItemEnumerable.TryGetPartitionId(out var partitionKeyValue))
                             {
                                 throw new InvalidOperationException(CosmosStrings.PartitionKeyMissing);
                             }
@@ -222,7 +228,7 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor
 
                             _item = _cosmosQueryContext.CosmosClient.ExecuteReadItem(
                                 _readItemExpression.Container,
-                                partitionKey,
+                                partitionKeyValue,
                                 resourceId);
 
                             return ShapeResult();
@@ -265,7 +271,7 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor
                                 throw new InvalidOperationException(CosmosStrings.ResourceIdMissing);
                             }
 
-                            if (!_readItemEnumerable.TryGetPartitionId(out var partitionKey))
+                            if (!_readItemEnumerable.TryGetPartitionId(out var partitionKeyValue))
                             {
                                 throw new InvalidOperationException(CosmosStrings.PartitionKeyMissing);
                             }
@@ -274,7 +280,7 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor
 
                             _item = await _cosmosQueryContext.CosmosClient.ExecuteReadItemAsync(
                                     _readItemExpression.Container,
-                                    partitionKey,
+                                    partitionKeyValue,
                                     resourceId,
                                     _cancellationToken)
                                 .ConfigureAwait(false);

@@ -95,14 +95,14 @@ public class CosmosQueryableMethodTranslatingExpressionVisitor : QueryableMethod
 
                         if (ExtractPartitionKeyFromPredicate(entityType, lambdaExpression.Body, queryProperties, parameterNames))
                         {
-                            var entityTypePrimaryKeyProperties = entityType.FindPrimaryKey().Properties;
+                            var entityTypePrimaryKeyProperties = entityType.FindPrimaryKey()!.Properties;
                             var idProperty = entityType.GetProperties()
                                 .First(p => p.GetJsonPropertyName() == StoreKeyConvention.IdPropertyJsonName);
+                            var partitionKeyProperties = entityType.GetPartitionKeyProperties();
 
-                            if (TryGetPartitionKeyProperty(entityType, out var partitionKeyProperty)
-                                && entityTypePrimaryKeyProperties.SequenceEqual(queryProperties)
-                                && (partitionKeyProperty == null
-                                    || entityTypePrimaryKeyProperties.Contains(partitionKeyProperty))
+                            if (entityTypePrimaryKeyProperties.SequenceEqual(queryProperties)
+                                && (!partitionKeyProperties.Any()
+                                    || partitionKeyProperties.All(p => entityTypePrimaryKeyProperties.Contains(p)))
                                 && (idProperty.GetValueGeneratorFactory() != null
                                     || entityTypePrimaryKeyProperties.Contains(idProperty)))
                             {
@@ -174,19 +174,6 @@ public class CosmosQueryableMethodTranslatingExpressionVisitor : QueryableMethod
             }
 
             return false;
-        }
-
-        static bool TryGetPartitionKeyProperty(IEntityType entityType, out IProperty partitionKeyProperty)
-        {
-            var partitionKeyPropertyName = entityType.GetPartitionKeyPropertyName();
-            if (partitionKeyPropertyName is null)
-            {
-                partitionKeyProperty = null;
-                return true;
-            }
-
-            partitionKeyProperty = entityType.FindProperty(partitionKeyPropertyName);
-            return true;
         }
     }
 
@@ -938,18 +925,24 @@ public class CosmosQueryableMethodTranslatingExpressionVisitor : QueryableMethod
     protected override ShapedQueryExpression TranslateWhere(ShapedQueryExpression source, LambdaExpression predicate)
     {
         if (source.ShaperExpression is StructuralTypeShaperExpression { StructuralType: IEntityType entityType } entityShaperExpression
-            && entityType.GetPartitionKeyPropertyName() != null
-            && TryExtractPartitionKey(predicate.Body, entityType, out var newPredicate) is Expression partitionKeyValue)
+            && entityType.GetPartitionKeyPropertyNames().FirstOrDefault() != null)
         {
-            var partitionKeyProperty = entityType.GetProperty(entityType.GetPartitionKeyPropertyName());
-            ((SelectExpression)source.QueryExpression).SetPartitionKey(partitionKeyProperty, partitionKeyValue);
-
-            if (newPredicate == null)
+            List<(Expression, IProperty)> partitionKeyValues = new();
+            if (TryExtractPartitionKey(predicate.Body, entityType, out var newPredicate, partitionKeyValues))
             {
-                return source;
-            }
+                foreach (var propertyName in entityType.GetPartitionKeyPropertyNames())
+                {
+                    var partitionKeyValue = partitionKeyValues.FirstOrDefault(p => p.Item2.Name == propertyName);
+                    ((SelectExpression)source.QueryExpression).AddPartitionKey(partitionKeyValue.Item2, partitionKeyValue.Item1);
+                }
 
-            predicate = Expression.Lambda(newPredicate, predicate.Parameters);
+                if (newPredicate == null)
+                {
+                    return source;
+                }
+
+                predicate = Expression.Lambda(newPredicate, predicate.Parameters);
+            }
         }
 
         var translation = TranslateLambdaExpression(source, predicate);
@@ -962,22 +955,32 @@ public class CosmosQueryableMethodTranslatingExpressionVisitor : QueryableMethod
 
         return null;
 
-        Expression TryExtractPartitionKey(Expression expression, IEntityType entityType, out Expression updatedPredicate)
+        bool TryExtractPartitionKey(
+            Expression expression, IEntityType entityType, out Expression updatedPredicate, List<(Expression, IProperty)> partitionKeyValues)
         {
+            updatedPredicate = null;
             if (expression is BinaryExpression binaryExpression)
             {
-                partitionKeyValue = GetPartitionKeyValue(binaryExpression, entityType);
-                if (partitionKeyValue != null)
+                if (TryGetPartitionKeyValue(binaryExpression, entityType, out var valueExpression, out var property))
                 {
-                    updatedPredicate = null;
-                    return partitionKeyValue;
+                    partitionKeyValues.Add((valueExpression, property));
+                    return true;
                 }
 
                 if (binaryExpression.NodeType == ExpressionType.AndAlso)
                 {
-                    var leftPartitionKeyValue = TryExtractPartitionKey(binaryExpression.Left, entityType, out var leftPredicate);
-                    var rightPartitionKeyValue = TryExtractPartitionKey(binaryExpression.Right, entityType, out var rightPredicate);
-                    if ((leftPartitionKeyValue != null) ^ (rightPartitionKeyValue != null))
+                    var foundInRight = TryExtractPartitionKey(
+                        binaryExpression.Left, entityType, out var leftPredicate, partitionKeyValues);
+
+                    var foundInLeft = TryExtractPartitionKey(
+                        binaryExpression.Right, entityType, out var rightPredicate, partitionKeyValues);
+
+                    if (foundInLeft && foundInRight)
+                    {
+                        return true;
+                    }
+
+                    if (foundInLeft || foundInRight)
                     {
                         updatedPredicate = leftPredicate != null
                             ? rightPredicate != null
@@ -985,42 +988,61 @@ public class CosmosQueryableMethodTranslatingExpressionVisitor : QueryableMethod
                                 : leftPredicate
                             : rightPredicate;
 
-                        return leftPartitionKeyValue ?? rightPartitionKeyValue;
+                        return true;
                     }
+                }
+            }
+            else if (expression.NodeType == ExpressionType.MemberAccess
+                     && expression.Type == typeof(bool))
+            {
+                if (IsPartitionKeyPropertyAccess(expression, entityType, out var property))
+                {
+                    partitionKeyValues.Add((Expression.Constant(true), property));
+                    return true;
+                }
+
+            }
+            else if (expression.NodeType == ExpressionType.Not)
+            {
+                if (IsPartitionKeyPropertyAccess(((UnaryExpression)expression).Operand, entityType, out var property))
+                {
+                    partitionKeyValues.Add((Expression.Constant(false), property));
+                    return true;
                 }
             }
 
             updatedPredicate = expression;
-
-            return null;
+            return false;
         }
 
-        Expression GetPartitionKeyValue(BinaryExpression binaryExpression, IEntityType entityType)
+        bool TryGetPartitionKeyValue(BinaryExpression binaryExpression, IEntityType entityType, out Expression expression, out IProperty property)
         {
             if (binaryExpression.NodeType == ExpressionType.Equal)
             {
-                var valueExpression = IsPartitionKeyPropertyAccess(binaryExpression.Left, entityType)
+                expression = IsPartitionKeyPropertyAccess(binaryExpression.Left, entityType, out property)
                     ? binaryExpression.Right
-                    : IsPartitionKeyPropertyAccess(binaryExpression.Right, entityType)
+                    : IsPartitionKeyPropertyAccess(binaryExpression.Right, entityType, out property)
                         ? binaryExpression.Left
                         : null;
 
-                if (valueExpression is ConstantExpression
-                    || (valueExpression is ParameterExpression valueParameterExpression
+                if (expression is ConstantExpression
+                    || (expression is ParameterExpression valueParameterExpression
                         && valueParameterExpression.Name?
                             .StartsWith(QueryCompilationContext.QueryParameterPrefix, StringComparison.Ordinal)
                         == true))
                 {
-                    return valueExpression;
+                    return true;
                 }
             }
 
-            return null;
+            expression = null;
+            property = null;
+            return false;
         }
 
-        bool IsPartitionKeyPropertyAccess(Expression expression, IEntityType entityType)
+        bool IsPartitionKeyPropertyAccess(Expression expression, IEntityType entityType, out IProperty property)
         {
-            IProperty property = null;
+            property = null;
             switch (expression)
             {
                 case MemberExpression memberExpression:
@@ -1038,7 +1060,7 @@ public class CosmosQueryableMethodTranslatingExpressionVisitor : QueryableMethod
                     break;
             }
 
-            return property != null && property.Name == entityType.GetPartitionKeyPropertyName();
+            return property != null && entityType.GetPartitionKeyPropertyNames().Contains(property.Name);
         }
     }
 

@@ -1,6 +1,9 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+using Microsoft.EntityFrameworkCore.Cosmos.Internal;
+using Microsoft.EntityFrameworkCore.Internal;
+
 namespace Microsoft.EntityFrameworkCore.Cosmos.Query.Internal;
 
 /// <summary>
@@ -37,7 +40,32 @@ public class CosmosQueryMetadataExtractingExpressionVisitor : ExpressionVisitor
         {
             var innerQueryable = Visit(methodCallExpression.Arguments[0]);
 
-            _cosmosQueryCompilationContext.PartitionKeyFromExtension = methodCallExpression.Arguments[1].GetConstantValue<string>();
+            var firstValue = methodCallExpression.Arguments[1].GetConstantValue<object?>();
+            if (firstValue == null)
+            {
+                _cosmosQueryCompilationContext.PartitionKeyValueFromExtension = PartitionKey.None;
+            }
+            else
+            {
+                if (innerQueryable is EntityQueryRootExpression rootExpression)
+                {
+                    var partitionKeyProperties = rootExpression.EntityType.GetPartitionKeyProperties();
+                    var allValues = new[] { firstValue }.Concat(methodCallExpression.Arguments[2].GetConstantValue<object[]>()).ToList();
+                    var builder = new PartitionKeyBuilder();
+                    for (var i = 0; i < allValues.Count; i++)
+                    {
+                        var converter = partitionKeyProperties[i].GetTypeMapping().Converter;
+                        builder.Add(allValues[i], converter);
+                    }
+
+                    _cosmosQueryCompilationContext.PartitionKeyValueFromExtension = builder.Build();
+                }
+                else
+                {
+                    throw new InvalidOperationException(CosmosStrings.WithPartitionKeyBadNode);
+                }
+            }
+
 
             return innerQueryable;
         }

@@ -179,19 +179,6 @@ public class CosmosModelValidatorTest : ModelValidatorTestBase
     }
 
     [ConditionalFact]
-    public virtual void Detects_partition_key_of_different_type()
-    {
-        var modelBuilder = CreateConventionModelBuilder();
-        modelBuilder.Entity<Customer>().ToContainer("Orders").HasPartitionKey(c => c.PartitionId);
-        modelBuilder.Entity<Order>().ToContainer("Orders").HasPartitionKey(o => o.PartitionId)
-            .Property(c => c.PartitionId).HasConversion<int>();
-
-        VerifyError(
-            CosmosStrings.PartitionKeyNonStringStoreType(
-                nameof(Customer.PartitionId), typeof(Order).Name, "int"), modelBuilder);
-    }
-
-    [ConditionalFact]
     public virtual void Detects_conflicting_analytical_ttl()
     {
         var modelBuilder = CreateConventionModelBuilder();

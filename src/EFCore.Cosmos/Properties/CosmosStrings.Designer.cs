@@ -272,6 +272,14 @@ namespace Microsoft.EntityFrameworkCore.Cosmos.Internal
                 entityType, owner, container);
 
         /// <summary>
+        ///     The partition key value is of type '{valueType}' which is not valid for Cosmos partition keys. All partition key properties values must be numeric, Boolean, or string, or converted to one of these types.
+        /// </summary>
+        public static string PartitionKeyBadValue(object? valueType)
+            => string.Format(
+                GetString("PartitionKeyBadValue", nameof(valueType)),
+                valueType);
+
+        /// <summary>
         ///     The partition key specified in the 'WithPartitionKey' call '{partitionKey1}' and the partition key specified in the 'Where' predicate '{partitionKey2}' must be identical to return any results. Remove one of them.
         /// </summary>
         public static string PartitionKeyMismatch(object? partitionKey1, object? partitionKey2)
@@ -294,20 +302,20 @@ namespace Microsoft.EntityFrameworkCore.Cosmos.Internal
                 entityType, property);
 
         /// <summary>
-        ///     The type of the partition key property '{property}' on '{entityType}' is '{propertyType}'. All partition key properties need to be strings or have a string value converter.
-        /// </summary>
-        public static string PartitionKeyNonStringStoreType(object? property, object? entityType, object? propertyType)
-            => string.Format(
-                GetString("PartitionKeyNonStringStoreType", nameof(property), nameof(entityType), nameof(propertyType)),
-                property, entityType, propertyType);
-
-        /// <summary>
         ///     The partition key property '{property1}' on '{entityType1}' is mapped as '{storeName1}', but the partition key property '{property2}' on '{entityType2}' is mapped as '{storeName2}'. All partition key properties need to be mapped to the same store property for entity types mapped to the same container.
         /// </summary>
         public static string PartitionKeyStoreNameMismatch(object? property1, object? entityType1, object? storeName1, object? property2, object? entityType2, object? storeName2)
             => string.Format(
                 GetString("PartitionKeyStoreNameMismatch", nameof(property1), nameof(entityType1), nameof(storeName1), nameof(property2), nameof(entityType2), nameof(storeName2)),
                 property1, entityType1, storeName1, property2, entityType2, storeName2);
+
+        /// <summary>
+        ///     The entity type '{entityType}' has properties '{properties}' set as the parts of a hierarchical partition key, but only three parts are allowed. Use fewer parts.
+        /// </summary>
+        public static string PartitionKeyTooManyParts(object? entityType, object? properties)
+            => string.Format(
+                GetString("PartitionKeyTooManyParts", nameof(entityType), nameof(properties)),
+                entityType, properties);
 
         /// <summary>
         ///     Unable to execute a 'ReadItem' query since the 'id' value is missing and cannot be generated.
@@ -380,6 +388,12 @@ namespace Microsoft.EntityFrameworkCore.Cosmos.Internal
         /// </summary>
         public static string VisitChildrenMustBeOverridden
             => GetString("VisitChildrenMustBeOverridden");
+
+        /// <summary>
+        ///     'WithPartitionKeyMethodInfo' can only be called on a entity query root. See https://aka.ms/efdocs-cosmos-partition-keys for more information.
+        /// </summary>
+        public static string WithPartitionKeyBadNode
+            => GetString("WithPartitionKeyBadNode");
 
         private static string GetString(string name, params string[] formatterNames)
         {
@@ -577,6 +591,31 @@ namespace Microsoft.EntityFrameworkCore.Cosmos.Internal
             }
 
             return (EventDefinition<string, string?, string, string, string>)definition;
+        }
+
+        /// <summary>
+        ///     No partition key has been configured for entity type '{entityType}'. It is highly recommended that an appropriate partition key be defined. See https://aka.ms/efdocs-cosmos-partition-keys for more information.
+        /// </summary>
+        public static EventDefinition<string> LogNoPartitionKeyDefined(IDiagnosticsLogger logger)
+        {
+            var definition = ((Diagnostics.Internal.CosmosLoggingDefinitions)logger.Definitions).LogNoPartitionKeyDefined;
+            if (definition == null)
+            {
+                definition = NonCapturingLazyInitializer.EnsureInitialized(
+                    ref ((Diagnostics.Internal.CosmosLoggingDefinitions)logger.Definitions).LogNoPartitionKeyDefined,
+                    logger,
+                    static logger => new EventDefinition<string>(
+                        logger.Options,
+                        CosmosEventId.NoPartitionKeyDefined,
+                        LogLevel.Warning,
+                        "CosmosEventId.NoPartitionKeyDefined",
+                        level => LoggerMessage.Define<string>(
+                            level,
+                            CosmosEventId.NoPartitionKeyDefined,
+                            _resourceManager.GetString("LogNoPartitionKeyDefined")!)));
+            }
+
+            return (EventDefinition<string>)definition;
         }
 
         /// <summary>

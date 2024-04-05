@@ -74,6 +74,8 @@ public class StoreKeyConvention :
 
     private static void ProcessIdProperty(IConventionEntityTypeBuilder entityTypeBuilder)
     {
+        // The `__id` property in the JSON doc must be mapped from a single primary or alternate key.
+        // This key mapping should include all the partition key properties.
         IConventionKey? newKey = null;
         IConventionProperty? idProperty;
         var entityType = entityTypeBuilder.Metadata;
@@ -100,20 +102,33 @@ public class StoreKeyConvention :
                     }
                 }
 
-                var partitionKey = entityType.GetPartitionKeyPropertyName();
-                if (partitionKey != null)
+                var partitionKeyProperties = entityType.GetPartitionKeyProperties();
+                if (partitionKeyProperties.Any()
+                    && partitionKeyProperties.All(p => p != null))
                 {
-                    var partitionKeyProperty = entityType.FindProperty(partitionKey);
-                    if (partitionKeyProperty == null
-                        || partitionKeyProperty == idProperty)
+                    if (partitionKeyProperties.Count == 1
+                        && partitionKeyProperties[0] == idProperty)
                     {
-                        newKey = entityTypeBuilder.HasKey(new[] { idProperty })?.Metadata;
+                        newKey = entityTypeBuilder.HasKey([idProperty])?.Metadata;
                     }
                     else
                     {
-                        if (entityType.FindKey(new[] { partitionKeyProperty, idProperty }) == null)
+                        var keyContainsPartitionProperties = false;
+                        var keys = entityType.GetKeys().ToList();
+                        foreach (var key in keys)
                         {
-                            newKey = entityTypeBuilder.HasKey(new[] { idProperty, partitionKeyProperty })?.Metadata;
+                            if (key.Properties.Contains(idProperty)
+                                && partitionKeyProperties.All(p => key.Properties.Contains(p)))
+                            {
+                                keyContainsPartitionProperties = true;
+                                break;
+                            }
+                        }
+
+                        if (!keyContainsPartitionProperties)
+                        {
+                            var properties = new[] { idProperty }.Concat(partitionKeyProperties).ToList();
+                            newKey = entityTypeBuilder.HasKey(properties!)?.Metadata;
                         }
 
                         entityTypeBuilder.HasNoKey(new[] { idProperty });
@@ -121,7 +136,7 @@ public class StoreKeyConvention :
                 }
                 else
                 {
-                    newKey = entityTypeBuilder.HasKey(new[] { idProperty })?.Metadata;
+                    newKey = entityTypeBuilder.HasKey([idProperty])?.Metadata;
                 }
             }
         }
@@ -130,10 +145,13 @@ public class StoreKeyConvention :
             idProperty = entityType.FindDeclaredProperty(DefaultIdPropertyName);
         }
 
+        // If we created a new key above that maps to the __id property, then remove any existing keys
+        // that were previously mapped to it.
         if (idProperty != null
-            && idProperty.GetContainingKeys().Count() > (newKey == null ? 0 : 1))
+            && newKey != null)
         {
-            foreach (var key in idProperty.GetContainingKeys().ToList())
+            var keys = idProperty.GetContainingKeys().ToList();
+            foreach (var key in keys)
             {
                 if (key != newKey)
                 {
@@ -264,17 +282,20 @@ public class StoreKeyConvention :
         {
             ProcessIdProperty(entityTypeBuilder);
         }
-        else if (name == CosmosAnnotationNames.PartitionKeyName)
+        else if (name == CosmosAnnotationNames.PartitionKeyNames)
         {
-            var oldName = (string?)oldAnnotation?.Value;
-            if (oldName != null)
+            var oldNames = (IReadOnlyList<string>?)oldAnnotation?.Value;
+            if (oldNames != null)
             {
-                var oldPartitionKeyProperty = entityTypeBuilder.Metadata.FindProperty(oldName);
-                if (oldPartitionKeyProperty != null)
+                foreach (var oldName in oldNames)
                 {
-                    foreach (var key in oldPartitionKeyProperty.GetContainingKeys().ToList())
+                    var oldPartitionKeyProperty = entityTypeBuilder.Metadata.FindProperty(oldName);
+                    if (oldPartitionKeyProperty != null)
                     {
-                        key.DeclaringEntityType.Builder.HasNoKey(key);
+                        foreach (var key in oldPartitionKeyProperty.GetContainingKeys().ToList())
+                        {
+                            key.DeclaringEntityType.Builder.HasNoKey(key);
+                        }
                     }
                 }
             }

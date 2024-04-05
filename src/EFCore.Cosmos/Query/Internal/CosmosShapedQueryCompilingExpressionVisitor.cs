@@ -20,7 +20,7 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor : ShapedQueryCo
     private readonly IQuerySqlGeneratorFactory _querySqlGeneratorFactory;
     private readonly Type _contextType;
     private readonly bool _threadSafetyChecksEnabled;
-    private readonly string _partitionKeyFromExtension;
+    private readonly PartitionKey _partitionKeyValueFromExtension;
 
     /// <summary>
     ///     This is an internal API that supports the Entity Framework Core infrastructure and not subject to
@@ -39,7 +39,8 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor : ShapedQueryCo
         _querySqlGeneratorFactory = querySqlGeneratorFactory;
         _contextType = cosmosQueryCompilationContext.ContextType;
         _threadSafetyChecksEnabled = dependencies.CoreSingletonOptions.AreThreadSafetyChecksEnabled;
-        _partitionKeyFromExtension = cosmosQueryCompilationContext.PartitionKeyFromExtension;
+        _partitionKeyValueFromExtension = cosmosQueryCompilationContext.PartitionKeyValueFromExtension
+            ?? PartitionKey.None;
     }
 
     /// <summary>
@@ -79,7 +80,7 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor : ShapedQueryCo
                     Constant(selectExpression),
                     Constant(shaperLambda.Compile()),
                     Constant(_contextType),
-                    Constant(_partitionKeyFromExtension, typeof(string)),
+                    Constant(_partitionKeyValueFromExtension, typeof(PartitionKey)),
                     Constant(
                         QueryCompilationContext.QueryTrackingBehavior == QueryTrackingBehavior.NoTrackingWithIdentityResolution),
                     Constant(_threadSafetyChecksEnabled));
